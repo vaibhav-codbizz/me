@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc33;
+}
+
+/* Matrix rain background */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100vh;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #00ff41;
+  animation: matrix-rain linear infinite;
+  white-space: nowrap;
+}
+
+/* Typing effect */
+.typing-text {
+  overflow: hidden;
+  border-right: 3px solid #00ff41;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+/* Glow effects */
+.glow-text {
+  text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+}
+
+.glow-border {
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+  border: 1px solid #00ff41;
+}
+
+/* Button hover effects */
+.btn-neon {
+  @apply bg-transparent border-2 border-neon-green text-neon-green px-6 py-3 rounded-lg font-mono font-semibold transition-all duration-300 hover:bg-neon-green hover:text-black hover:shadow-neon;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-neon-lg;
+}
+
+/* Skill bar animation */
+.skill-bar {
+  @apply bg-dark-charcoal rounded-full h-3 overflow-hidden;
+}
+
+.skill-fill {
+  @apply h-full bg-gradient-to-r from-neon-green to-green-400 rounded-full transition-all duration-1000 ease-out;
+  box-shadow: 0 0 10px #00ff41;
+}
+
+/* Form styles */
+.form-input {
+  @apply bg-dark-charcoal border-2 border-gray-600 text-white px-4 py-3 rounded-lg focus:border-neon-green focus:outline-none focus:shadow-neon transition-all duration-300;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .typing-text {
+    font-size: 1.5rem;
+  }
+  
+  .matrix-column {
+    font-size: 12px;
+  }
+  
+  .btn-neon {
+    @apply text-sm px-4 py-2;
+  }
+  
+  .card-hover {
+    @apply hover:scale-102;
+  }
+}
